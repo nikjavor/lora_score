@@ -4,10 +4,10 @@
 
 <table> <%# SCORES %>
   <tr>
-    <th>Name 1</th>
-    <th>Name 2</th>
-    <th>Name 3</th>
-    <th>Name 4</th>
+    <th><%= Player.find(@game.p1).player_name %></th>
+    <th><%= Player.find(@game.p2).player_name %></th>
+    <th><%= Player.find(@game.p3).player_name %></th>
+    <th><%= Player.find(@game.p4).player_name %></th>
   </tr>
   <% 28.times do %>
     <tr>
