@@ -3,7 +3,7 @@
 <%= form_with model: @game do |form| %>
   <div>
     <%= form.label :game_name %><br>
-    <%= form.text_field :game_name%>
+    <%= form.text_field :game_name %>
     <% @game.errors.full_messages_for(:game_name).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :p1 %><br>
-    <%= form.number_field :p1, in: 1..20, step: 1%>
+    <%= form.number_field :p1, in: 1..20, step: 1 %>
     <% @game.errors.full_messages_for(:p1).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -21,7 +21,7 @@
 
   <div>
     <%= form.label :p2 %><br>
-    <%= form.number_field :p2, in: 1..20, step: 1%>
+    <%= form.number_field :p2, in: 1..20, step: 1 %>
     <% @game.errors.full_messages_for(:p2).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -29,7 +29,7 @@
 
   <div>
     <%= form.label :p3 %><br>
-    <%= form.number_field :p3, in: 1..20, step: 1%>
+    <%= form.number_field :p3, in: 1..20, step: 1 %>
     <% @game.errors.full_messages_for(:p3).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -37,7 +37,7 @@
 
   <div>
     <%= form.label :p4 %><br>
-    <%= form.number_field :p4, in: 1..Player.last.id, step: 1%>
+    <%= form.number_field :p4, in: 1..20, step: 1 %>
     <% @game.errors.full_messages_for(:p4).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -53,4 +53,3 @@
 <% @players.each do |player| %>
   <p><%=player.id%> - <%=player.player_name%></p>
 <% end %>
-  
