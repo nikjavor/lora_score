@@ -1,3 +1,5 @@
+<%= link_to "<- back", root_path %>
+
 <h1>Create new game</h1>
 
 <%= form_with model: @game do |form| %>
@@ -6,40 +8,45 @@
     <%= form.text_field :game_name %>
     <% @game.errors.full_messages_for(:game_name).each do |message| %>
       <div><%= message %></div>
+      <br>
     <% end %>
   </div>
 
   <br>
 
   <div>
-    <%= form.label :p1 %><br>
-    <%= form.number_field :p1, in: 1..20, step: 1 %>
+    <%= form.label :p1 %>
+    <%= form.select :p1, Player.order(:player_name).map { |player| [player.player_name, player.id] } %>
     <% @game.errors.full_messages_for(:p1).each do |message| %>
       <div><%= message %></div>
+      <br>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :p2 %><br>
-    <%= form.number_field :p2, in: 1..20, step: 1 %>
+    <%= form.label :p2 %>
+    <%= form.select :p2, Player.order(:player_name).map { |player| [player.player_name, player.id] } %>
     <% @game.errors.full_messages_for(:p2).each do |message| %>
       <div><%= message %></div>
+      <br>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :p3 %><br>
-    <%= form.number_field :p3, in: 1..20, step: 1 %>
+    <%= form.label :p3 %>
+    <%= form.select :p3, Player.order(:player_name).map { |player| [player.player_name, player.id] } %>
     <% @game.errors.full_messages_for(:p3).each do |message| %>
       <div><%= message %></div>
+      <br>
     <% end %>
   </div>
 
   <div>
-    <%= form.label :p4 %><br>
-    <%= form.number_field :p4, in: 1..20, step: 1 %>
+    <%= form.label :p4 %>
+    <%= form.select :p4, Player.order(:player_name).map { |player| [player.player_name, player.id] } %>
     <% @game.errors.full_messages_for(:p4).each do |message| %>
       <div><%= message %></div>
+      <br>
     <% end %>
   </div>
 
@@ -48,8 +55,4 @@
   <div>
     <%= form.submit %>
   </div>
-<% end %>
-
-<% @players.each do |player| %>
-  <p><%=player.id%> - <%=player.player_name%></p>
 <% end %>
