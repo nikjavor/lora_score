@@ -1,0 +1,7 @@
+<h1>Admin page</h1>
+<h2>Players:</h2>
+<ul>
+  <% @players.each do |player| %>
+    <li><% player.player_name %></li>
+  <% end %>
+</ul>
