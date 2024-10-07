@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_02_205451) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_07_081331) do
   create_table "games", force: :cascade do |t|
     t.string "game_name"
     t.datetime "created_at", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_02_205451) do
     t.integer "p2"
     t.integer "p3"
     t.integer "p4"
+    t.boolean "finished", default: false
   end
 
   create_table "minigames", force: :cascade do |t|
@@ -45,10 +46,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_02_205451) do
 
   create_table "scores", force: :cascade do |t|
     t.integer "game_id"
-    t.integer "player_id"
     t.integer "score_position"
-    t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "value_p1"
+    t.integer "value_p2"
+    t.integer "value_p3"
+    t.integer "value_p4"
   end
 end

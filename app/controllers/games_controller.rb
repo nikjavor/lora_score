@@ -16,16 +16,9 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      @p1 = @game.p1
-      @p2 = @game.p2
-      @p3 = @game.p3
-      @p4 = @game.p4
       @id = @game.id
       for i in 1..28
-        Score.new(game_id: @id, player_id: @p1, score_position: i, value: 0).save
-        Score.new(game_id: @id, player_id: @p2, score_position: i, value: 0).save
-        Score.new(game_id: @id, player_id: @p3, score_position: i, value: 0).save
-        Score.new(game_id: @id, player_id: @p4, score_position: i, value: 0).save
+        Score.new(game_id: @id, score_position: i, value_p1: 0, value_p2: 0, value_p3: 0, value_p4: 0).save
       end
       redirect_to @game
     else
