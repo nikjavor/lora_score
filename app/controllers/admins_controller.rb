@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
   def index
-    @players = Player.all.order(:player_name)
+    @players = Player.all
   end
 end

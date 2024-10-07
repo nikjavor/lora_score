@@ -1,7 +1,10 @@
 <h1>Admin page</h1>
 <h2>Players:</h2>
+<%= link_to "add player", new_player_path%>
 <ul>
   <% @players.each do |player| %>
-    <li><% player.player_name %></li>
+    <% entry = player.id.to_s + "_" + player.player_name %> 
+    <% entry = "0" + entry if player.id < 10 %>
+    <li><%= entry %></li>
   <% end %>
 </ul>
