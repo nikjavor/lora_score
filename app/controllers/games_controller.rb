@@ -20,6 +20,10 @@ class GamesController < ApplicationController
       for i in 1..28
         Score.new(game_id: @id, score_position: i, value_p1: 0, value_p2: 0, value_p3: 0, value_p4: 0).save
       end
+        Minigame.new(game_id: @id, player_id: @game.p1).save
+        Minigame.new(game_id: @id, player_id: @game.p2).save
+        Minigame.new(game_id: @id, player_id: @game.p3).save
+        Minigame.new(game_id: @id, player_id: @game.p4).save
       redirect_to @game
     else
       render :new, status: :unprocessable_entity
