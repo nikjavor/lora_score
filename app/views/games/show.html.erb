@@ -19,9 +19,10 @@
     </tr>
   <% end %>
   <tr>
-    <% 4.times do %>
-      <td>total: x</td>
-    <% end %>
+    <td>total: <%= @scores.sum(:value_p1) %></td>
+    <td>total: <%= @scores.sum(:value_p2) %></td>
+    <td>total: <%= @scores.sum(:value_p3) %></td>
+    <td>total: <%= @scores.sum(:value_p4) %></td>
   </tr>
 </table>
 
