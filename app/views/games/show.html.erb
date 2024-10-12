@@ -11,10 +11,17 @@
     <th><%= Player.find(@game.p3).player_name %></th>
     <th><%= Player.find(@game.p4).player_name %></th>
   </tr>
-  <% 28.times do %>
+  <% for i in 1..28 do %>
+    <% @score = Score.where(game_id: @game.id, score_position: i).first %>
     <tr>
-      <% 4.times do %>
-        <td><input type="number" min=-224 max=224 value=0></td>
+      <% for j in 1..4 do %>
+        <% @scr = @score.value_p1 if j = 1%>
+        <% @scr = @score.value_p2 if j = 2%>
+        <% @scr = @score.value_p3 if j = 3%>
+        <% @scr = @score.value_p4 if j = 4%>
+        <td>
+          <input type="number" min=-224 max=224 value=<%= @scr %>>
+        </td>
       <% end %>
     </tr>
   <% end %>

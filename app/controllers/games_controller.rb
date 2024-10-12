@@ -6,6 +6,10 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @scores = Score.where(game_id: @game.id)
+    @p1 = @game.p1
+    @p2 = @game.p2
+    @p3 = @game.p3
+    @p4 = @game.p4
   end
 
   def new
